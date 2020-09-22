@@ -13,3 +13,10 @@ $ docker run --rm -it "$PWD:/app" build-httpcapturetestapp ./gradlew assembleDeb
 # Delete image if you want
 $ docker rmi build-httpcapturetestapp
 ```
+
+### Communication types you can try to capture
+- HTTP
+- HTTPS
+
+### TODO
+- HTTPS (Certificate Pinning)
