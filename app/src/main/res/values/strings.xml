@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">HTTPCaptureTestapp</string>
+    <string name="http_title">HTTP</string>
+    <string name="http_url">http://example.com</string>
+    <string name="https_title">HTTPS</string>
+    <string name="https_url">https://example.com</string>
+    <string name="https_pinning_title">HTTPS(Cert. Pinning)</string>
+    <string name="https_pinning_url">https://example.com</string>
+    <string name="button_label">Send\nRequest</string>
 </resources>
