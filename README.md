@@ -14,6 +14,8 @@ $ docker run --rm -it "$PWD:/app" build-httpcapturetestapp ./gradlew assembleDeb
 $ docker rmi build-httpcapturetestapp
 ```
 
+After execute of commands above, you can find built apk file in `app/build/outputs/apk/debug/`
+
 ### Communication types you can try to capture
 - HTTP
 - HTTPS
