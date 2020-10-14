@@ -2,14 +2,12 @@ package com.example.httpcapturetestapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Layout
 import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_main.*
 import okhttp3.*
-import org.w3c.dom.Text
 import java.io.IOException
 
 
@@ -33,7 +31,7 @@ class MainActivity : AppCompatActivity() {
 
             val resultText = findViewById<TextView>(R.id.resultText)
 
-            findViewById<Button>(R.id.button).setOnClickListener {
+            findViewById<Button>(R.id.button_reset).setOnClickListener {
                 getAndSetText(resources.getString(R.string.http_url), resultText, client)
             }
         }
@@ -45,7 +43,7 @@ class MainActivity : AppCompatActivity() {
 
             val resultText = findViewById<TextView>(R.id.resultText)
 
-            findViewById<Button>(R.id.button).setOnClickListener {
+            findViewById<Button>(R.id.button_reset).setOnClickListener {
                 getAndSetText(resources.getString(R.string.https_url), resultText, client)
             }
         }
@@ -57,7 +55,7 @@ class MainActivity : AppCompatActivity() {
 
             val resultText = findViewById<TextView>(R.id.resultText)
 
-            findViewById<Button>(R.id.button).setOnClickListener {
+            findViewById<Button>(R.id.button_reset).setOnClickListener {
                 getAndSetText(resources.getString(R.string.https_pinning_url), resultText, pinnedClient)
             }
         }
