@@ -3,6 +3,7 @@ package com.example.httpcapturetestapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -16,12 +17,13 @@ class MainActivity : AppCompatActivity() {
     lateinit var client: OkHttpClient
     lateinit var pinnedClient: OkHttpClient
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         initHTTPClients()
+
+        val cards = mutableListOf<View>()
 
         val ll = findViewById<LinearLayout>(R.id.linearlayout)
         val card1 = LayoutInflater.from(applicationContext).inflate(R.layout.mycard, ll, false)
@@ -31,11 +33,11 @@ class MainActivity : AppCompatActivity() {
 
             val resultText = findViewById<TextView>(R.id.resultText)
 
-            findViewById<Button>(R.id.button_reset).setOnClickListener {
+            findViewById<Button>(R.id.button_send).setOnClickListener {
                 getAndSetText(resources.getString(R.string.http_url), resultText, client)
             }
         }
-        linearlayout.addView(card1)
+        cards.add(card1)
 
         val card2 = LayoutInflater.from(applicationContext).inflate(R.layout.mycard, ll, false).apply {
             findViewById<TextView>(R.id.cardTitle).text = resources.getString(R.string.https_title)
@@ -43,11 +45,11 @@ class MainActivity : AppCompatActivity() {
 
             val resultText = findViewById<TextView>(R.id.resultText)
 
-            findViewById<Button>(R.id.button_reset).setOnClickListener {
+            findViewById<Button>(R.id.button_send).setOnClickListener {
                 getAndSetText(resources.getString(R.string.https_url), resultText, client)
             }
         }
-        linearlayout.addView(card2)
+        cards.add(card2)
 
         val card3 = LayoutInflater.from(applicationContext).inflate(R.layout.mycard, ll, false).apply {
             findViewById<TextView>(R.id.cardTitle).text = resources.getString(R.string.https_pinning_title)
@@ -55,11 +57,20 @@ class MainActivity : AppCompatActivity() {
 
             val resultText = findViewById<TextView>(R.id.resultText)
 
-            findViewById<Button>(R.id.button_reset).setOnClickListener {
+            findViewById<Button>(R.id.button_send).setOnClickListener {
                 getAndSetText(resources.getString(R.string.https_pinning_url), resultText, pinnedClient)
             }
         }
-        linearlayout.addView(card3)
+        cards.add(card3)
+
+        cards.forEach { card ->
+            card.apply {
+                findViewById<Button>(R.id.button_reset).setOnClickListener {
+                    findViewById<TextView>(R.id.resultText).text = ""
+                }
+            }
+            ll.addView(card)
+        }
     }
 
     fun initHTTPClients() {
