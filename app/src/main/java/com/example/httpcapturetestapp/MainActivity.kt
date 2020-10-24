@@ -82,7 +82,7 @@ class MainActivity : AppCompatActivity() {
             })
             .build()
         val pinner = CertificatePinner.Builder()
-            .add(resources.getString(R.string.https_pinning_url), resources.getString(R.string.https_pinning_hash))
+            .add(resources.getString(R.string.https_pinning_host), resources.getString(R.string.https_pinning_hash))
             .build()
         this.pinnedClient = OkHttpClient.Builder()
             .cache(null)
