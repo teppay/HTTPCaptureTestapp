@@ -9,6 +9,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_main.*
 import okhttp3.*
+import okhttp3.logging.HttpLoggingInterceptor
 import java.io.IOException
 
 
@@ -76,12 +77,18 @@ class MainActivity : AppCompatActivity() {
     fun initHTTPClients() {
         this.client = OkHttpClient.Builder()
             .cache(null)
+            .addInterceptor(HttpLoggingInterceptor().apply {
+                level = HttpLoggingInterceptor.Level.BODY
+            })
             .build()
         val pinner = CertificatePinner.Builder()
             .add(resources.getString(R.string.https_pinning_url), resources.getString(R.string.https_pinning_hash))
             .build()
         this.pinnedClient = OkHttpClient.Builder()
             .cache(null)
+            .addInterceptor(HttpLoggingInterceptor().apply {
+                level = HttpLoggingInterceptor.Level.BODY
+            })
             .certificatePinner(pinner)
             .build()
     }
