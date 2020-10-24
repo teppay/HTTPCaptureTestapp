@@ -22,12 +22,17 @@
             android:layout_height="wrap_content" />
     </androidx.core.widget.NestedScrollView>
 
-    <LinearLayout
-        android:id="@+id/linearlayout"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#EFEEEE"
-        android:orientation="vertical" />
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/linearlayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#EFEEEE"
+            android:orientation="vertical" />
+    </ScrollView>
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -6,5 +6,8 @@
     <string name="https_url">https://example.com</string>
     <string name="https_pinning_title">HTTPS(Cert. Pinning)</string>
     <string name="https_pinning_url">https://example.com</string>
-    <string name="button_label">Send\nRequest</string>
+    <string name="https_pinning_host">example.com</string> <!-- Please change https_pinning_host along with https_pinning_url  -->
+    <string name="https_pinning_hash">sha256/i9HalScvf6T/skE3/A7QOq5n5cTYs8UHNOEFCnkguSI=</string>
+    <string name="label_send_button">Send\nRequest</string>
+    <string name="label_reset_button">Reset</string>
 </resources>
