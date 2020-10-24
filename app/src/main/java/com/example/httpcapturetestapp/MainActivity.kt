@@ -74,11 +74,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun initHTTPClients() {
-        this.client = OkHttpClient()
+        this.client = OkHttpClient.Builder()
+            .cache(null)
+            .build()
         val pinner = CertificatePinner.Builder()
             .add(resources.getString(R.string.https_pinning_url), resources.getString(R.string.https_pinning_hash))
             .build()
         this.pinnedClient = OkHttpClient.Builder()
+            .cache(null)
             .certificatePinner(pinner)
             .build()
     }
