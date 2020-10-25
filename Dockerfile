@@ -46,4 +46,3 @@ WORKDIR /app
 
 COPY docker-entrypoint.sh /app/
 RUN chmod +x /app/docker-entrypoint.sh
-ENTRYPOINT [ "bash", "docker-entrypoint.sh" ]
