@@ -14,6 +14,9 @@ RUN apt-get install -y software-properties-common curl \
     && apt-get update \
     && apt-get install -y openjdk-8-jdk
 
+# Install xmlstarlet
+RUN apt-get install -y xmlstarlet
+
 # Download Android SDK
 RUN sudo apt-get -y install wget unzip \
  && cd /usr/local \
@@ -40,3 +43,6 @@ RUN touch ~/.android/repositories.cfg
 RUN yes | sdkmanager --licenses --sdk_root=${ANDROID_HOME}
 
 WORKDIR /app
+
+COPY docker-entrypoint.sh /app/
+RUN chmod +x /app/docker-entrypoint.sh

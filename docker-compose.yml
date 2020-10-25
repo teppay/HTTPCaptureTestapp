@@ -1,0 +1,8 @@
+version: '3'
+services:
+    build-httpcapturetestapp:
+        build: .
+        image: build-httpcapturetestapp
+        volumes:
+            - '.:/app'
+        entrypoint: "bash ./docker-entrypoint.sh"
